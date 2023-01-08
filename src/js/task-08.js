@@ -4,7 +4,11 @@ loginFormEl.addEventListener("submit", formSubmit);
 
 function formSubmit(e) {
   e.preventDefault();
-  if (loginFormEl.elements.email.value && loginFormEl.elements.password.value) {
+  const {
+    elements: { email, password },
+  } = e.currentTarget;
+
+  if (email.value && password.value) {
     const authorizationFormData = {};
 
     new FormData(e.currentTarget).forEach((value, name) => {

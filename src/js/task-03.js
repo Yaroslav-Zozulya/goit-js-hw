@@ -14,9 +14,11 @@ const images = [
     alt: "Group of Horses Running",
   },
 ];
-
-const markup = images
-  .map(({ url, alt }) => `<li><img src=${url} alt="${alt}" /></li>`)
-  .join("");
+const markup = images.reduce((acc, { url, alt }) => {
+  return (acc += `<li><img src=${url} alt="${alt}" /></li>`);
+}, "");
+// const markup = images
+//   .map(({ url, alt }) => `<li><img src=${url} alt="${alt}" /></li>`)
+//   .join("");
 
 galleryEl.insertAdjacentHTML("afterbegin", markup);
