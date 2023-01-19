@@ -3,20 +3,18 @@ const createBtnEl = document.querySelector("[data-create]");
 const destroyBtnEl = document.querySelector("[data-destroy]");
 const boxesEl = document.querySelector("#boxes");
 
-createBtnEl.addEventListener("click", onCreateBtnClick);
+createBtnEl.addEventListener("click", createBoxes);
 
 destroyBtnEl.addEventListener("click", onDestroyBtnClick);
-
-function onCreateBtnClick() {
-  createBoxes(inputEl.value);
-}
 
 function onDestroyBtnClick() {
   boxesEl.innerHTML = "";
 }
 
-function createBoxes(amount) {
-  if (!amount) {
+function createBoxes() {
+  const amount = Number(inputEl.value);
+
+  if (!amount || amount > 100) {
     alert("Please, enter a number!");
     return;
   }
