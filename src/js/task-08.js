@@ -8,7 +8,7 @@ function formSubmit(e) {
     elements: { email, password },
   } = e.currentTarget;
 
-  if (email.value && password.value) {
+  if (email.value.trim() && password.value.trim()) {
     const authorizationFormData = {};
 
     new FormData(e.currentTarget).forEach((value, name) => {
